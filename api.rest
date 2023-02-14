@@ -1,0 +1,12 @@
+@url=http://localhost:3000/
+###
+GET {{url}}posts
+
+###
+POST  {{url}}posts
+content-type: application/json
+
+{
+    "title": "sample form rest client",
+    "autho": "rest client"
+}
