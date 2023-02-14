@@ -1,12 +1,11 @@
-@url=http://localhost:3000/
+@url=http://localhost:3000
 ###
-GET {{url}}posts
+GET {{url}}/users
 
 ###
-POST  {{url}}posts
+POST  {{url}}/users
 content-type: application/json
 
 {
-    "title": "sample form rest client",
-    "autho": "rest client"
+    "name": "ean"
 }
