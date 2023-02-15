@@ -19,4 +19,18 @@ const selectDataById = (by,data) => {
   );
 }
 
-module.exports = {selectData,insertData,selectDataById}
+const updateData = (id,data) => {
+  console.log(data)
+  return Pool.query(
+    `UPDATE users SET name='${data}' WHERE id=${id}`
+  );
+}
+
+const deleteUser = (id) => {
+  console.log(id)
+  return Pool.query(
+    `DELETE FROM users WHERE id=${id}`
+  );
+}
+
+module.exports = {selectData,insertData,selectDataById,updateData,deleteUser}

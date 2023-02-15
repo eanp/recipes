@@ -1,10 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const {getData,getDetail,postData} = require('./../controller/users')
+const {getData,getDetail,postData,putData,deleteData} = require('./../controller/users')
+const nameChecker = require('./../middleware/nameChecker')
 
 router.get('/',getData)
 router.get('/:id',getDetail)
-router.post('/',postData)
-// router.get('/:id',getData)
+router.post('/',nameChecker,postData)
+router.put('/:id',putData)
+router.delete('/:id',deleteData)
 
 module.exports = router

@@ -6,7 +6,7 @@ INSERT INTO users(name) VALUES('yosua');
 
  UPDATE users SET name='fauzan' WHERE name='basri';
 
- DELETE FROM users WHERE name='fauzan';
+ DELETE FROM users WHERE name='bayu';
 
  SELECT * FROM users WHERE name='yosua';
  
@@ -28,6 +28,7 @@ CREATE TABLE recipes(
  SELECT * FROM recipes;
 
 INSERT INTO recipes(ingredients,title,photo,users_id,created_at) VALUES('telur','telur goreng','http://localhost',4,'2023-02-14 14:58:23');
+INSERT INTO recipes(ingredients,title,photo,users_id,created_at) VALUES('telur','telur goreng','http://localhost',4,'to_timestamp(${Date.now()} / 1000.0)');
 
 CREATE TABLE category(
     id SERIAL PRIMARY KEY,
@@ -41,3 +42,6 @@ ALTER TABLE recipes add category_id INT;
 ALTER TABLE recipes add Foreign Key (category_id) REFERENCES category(id);
 
 ALTER TABLE recipes add slug VARCHAR;
+
+
+DELETE FROM users WHERE id=3
