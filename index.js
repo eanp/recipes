@@ -1,5 +1,6 @@
 const express = require('express')
 require('dotenv').config()
+const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const mainRouter = require('./src/routes')
 
@@ -10,6 +11,7 @@ console.log(process.env.DB_NAME)
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
+app.use(morgan('combined'))
 app.use("/",mainRouter)
 
 app.listen(port, () => {

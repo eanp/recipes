@@ -8,4 +8,13 @@ const insertData = (data) => {
   );
 }
 
-module.exports = {insertData}
+const getData = (data) => {
+  let {searchBy,search,sortBy,sort} = data
+  return Pool.query(
+    `SELECT recipes.title,recipes.ingredients,recipes.created_at as posttime, users.name as creator, category.name as category FROM recipes JOIN category ON recipes.category_id=category.id JOIN users ON users_id=users.id WHERE recipes.${searchBy} ILIKE '%${search}%' AND recipes.deleted_at IS NULL ORDER BY recipes.${sortBy} ${sort}`
+  );
+}
+
+
+
+module.exports = {insertData,getData}
