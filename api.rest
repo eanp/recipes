@@ -39,7 +39,7 @@ POST  {{url}}/auth/register
 content-type: application/json
 
 {
-    "email":"ean@ean.id",
+    "email":"ean@ean.",
     "name":"ean",
     "password":"123"
 }
@@ -49,8 +49,27 @@ POST  {{url}}/auth/login
 content-type: application/json
 
 {
-    "email":"ean@ean.my",
+    "email":"ean@ean.sg",
     "password":"123"
+}
+
+###
+GET  {{url}}/recipes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA5MjE4NzlhLWQ5MWEtNGQ5My04OWRhLTRmZmY4ZGU1ODYwNyIsImVtYWlsIjoiZWFuQGVhbi5teSIsImZ1bGxuYW1lIjoiZWFuIiwicGhvdG8iOm51bGwsInZlcmlmIjowLCJvdHAiOm51bGwsImNyZWF0ZWRfYXQiOm51bGwsImlhdCI6MTY3NzA0OTI0MSwiZXhwIjoxNjc4MzYzMjQxfQ.VNUjrVxZ4lXPL4WKOuyjDWDTffZnvJWr1LKE7UlXdR4
+
+###
+GET  {{url}}/recipes/my-recipe
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkZDNhYzBhLWNjY2EtNDg2ZS05YWE5LTRiZDUxZjIyMGFhYiIsImVtYWlsIjoiZWFuQGVhbi5zZyIsImZ1bGxuYW1lIjoiZWFuIiwicGhvdG8iOm51bGwsInZlcmlmIjowLCJvdHAiOm51bGwsImNyZWF0ZWRfYXQiOm51bGwsImlhdCI6MTY3NzA1MDQ5MCwiZXhwIjoxNjc4MzY0NDkwfQ.rx8cJMr5j4SffAxdfoWKFXiD5s1qyQHXA_fGQAgrftE
+
+###
+POST  {{url}}/recipes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkZDNhYzBhLWNjY2EtNDg2ZS05YWE5LTRiZDUxZjIyMGFhYiIsImVtYWlsIjoiZWFuQGVhbi5zZyIsImZ1bGxuYW1lIjoiZWFuIiwicGhvdG8iOm51bGwsInZlcmlmIjowLCJvdHAiOm51bGwsImNyZWF0ZWRfYXQiOm51bGwsImlhdCI6MTY3NzA1MDQ5MCwiZXhwIjoxNjc4MzY0NDkwfQ.rx8cJMr5j4SffAxdfoWKFXiD5s1qyQHXA_fGQAgrftE
+content-type: application/json
+
+{
+    "title":"telur acak",
+    "ingredients": "telur",
+    "photo": "http://localhost"
 }
 
 ###

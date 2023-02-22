@@ -1,6 +1,7 @@
 const {findUser,createUser} = require('./../models/users')
 const {v4:uuidv4} = require('uuid')
 const argon2 = require('argon2');
+const generateToken = require('../helpers/generateToken')
 
 const UsersController = {
     registerUser: async (req,res,next)=>{
@@ -41,7 +42,13 @@ const UsersController = {
 
         let verifyPassword = await argon2.verify(users.password,req.body.password)
 
+        let data = users
+        delete data.password
+
+        let token = generateToken(data)
+        
         if(verifyPassword){
+            users.token = token
             delete users.password
             delete users.otp
             delete users.verif

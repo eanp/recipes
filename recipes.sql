@@ -76,3 +76,8 @@ CREATE TABLE users(
 INSERT INTO users(id,email,password,fullname) VALUES('1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed','ean@ean.id','123','ean');
 
 SELECT * FROM users WHERE email='ean@ean.id';
+
+
+ALTER TABLE recipes add users_id VARCHAR;
+
+ALTER TABLE recipes add Foreign Key (users_id) REFERENCES users(id);
