@@ -33,4 +33,29 @@ const deleteUser = (id) => {
   );
 }
 
-module.exports = {selectData,insertData,selectDataById,updateData,deleteUser}
+const findUser = (email) => {
+  return new Promise((resolve,reject)=>
+  Pool.query(`SELECT * FROM users WHERE email='${email}'`,
+  (err,result)=>{
+    if(!err){
+      resolve(result)
+    } else {
+      reject(err)
+    }
+  }))
+}
+
+const createUser = (data) => {
+  const {email,fullname,password,id} = data
+  console.log(data)
+  return new Promise((resolve,reject)=>
+  Pool.query(`INSERT INTO users(id,email,fullname,password) VALUES('${id}','${email}','${fullname}','${password}')`,(err,result)=>{
+    if(!err){
+      resolve(result)
+    } else {
+      reject(err)
+    }
+  }))
+}
+
+module.exports = {selectData,insertData,selectDataById,updateData,deleteUser,findUser,createUser}

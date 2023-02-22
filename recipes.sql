@@ -61,3 +61,18 @@ ALTER TABLE recipes add deleted_at TIMESTAMP DEFAULT NULL;
  UPDATE recipes SET deleted_at='2023-02-14 14:58:23' WHERE id=1;
 
 SELECT * FROM recipes LIMIT 2;
+
+CREATE TABLE users(
+    id VARCHAR PRIMARY KEY,
+    email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL,
+    fullname VARCHAR,
+    photo VARCHAR,
+    verif INT DEFAULT 0,
+    OTP VARCHAR,
+    created_at TIMESTAMP
+);
+
+INSERT INTO users(id,email,password,fullname) VALUES('1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed','ean@ean.id','123','ean');
+
+SELECT * FROM users WHERE email='ean@ean.id';

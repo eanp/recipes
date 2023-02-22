@@ -33,3 +33,24 @@ content-type: application/json
 ###
 
 GET http://localhost:3000/users
+
+###
+POST  {{url}}/auth/register
+content-type: application/json
+
+{
+    "email":"ean@ean.id",
+    "name":"ean",
+    "password":"123"
+}
+
+###
+POST  {{url}}/auth/login
+content-type: application/json
+
+{
+    "email":"ean@ean.my",
+    "password":"123"
+}
+
+###
