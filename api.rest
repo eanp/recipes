@@ -49,7 +49,7 @@ POST  {{url}}/auth/login
 content-type: application/json
 
 {
-    "email":"ean@ean.sg",
+    "email":"ean@ean.s",
     "password":"123"
 }
 

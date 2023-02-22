@@ -4,6 +4,6 @@ const {registerUser,loginUser,otp} = require('./../controller/auth')
 
 router.post('/register',registerUser)
 router.post('/login',loginUser)
-// router.post('/otp',otp)
+router.get('/otp/:id/:code',otp)
 
 module.exports = router

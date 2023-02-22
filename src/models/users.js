@@ -12,11 +12,16 @@ const insertData = data => {
     `INSERT INTO users(name) VALUES('${data}')`
   );
 }
-const selectDataById = (by,data) => {
-  console.log(data)
-  return Pool.query(
-    `SELECT * FROM users WHERE ${by}='${data}'`
-  );
+const selectUserById = (id) => {
+  return new Promise((resolve,reject)=>
+  Pool.query(`SELECT * FROM users WHERE id='${id}'`,
+  (err,result)=>{
+    if(!err){
+      resolve(result)
+    } else {
+      reject(err)
+    }
+  }))
 }
 
 const updateData = (id,data) => {
@@ -46,10 +51,10 @@ const findUser = (email) => {
 }
 
 const createUser = (data) => {
-  const {email,fullname,password,id} = data
+  const {email,fullname,password,id,otp} = data
   console.log(data)
   return new Promise((resolve,reject)=>
-  Pool.query(`INSERT INTO users(id,email,fullname,password) VALUES('${id}','${email}','${fullname}','${password}')`,(err,result)=>{
+  Pool.query(`INSERT INTO users(id,email,fullname,password,otp) VALUES('${id}','${email}','${fullname}','${password}','${otp}')`,(err,result)=>{
     if(!err){
       resolve(result)
     } else {
@@ -58,4 +63,10 @@ const createUser = (data) => {
   }))
 }
 
-module.exports = {selectData,insertData,selectDataById,updateData,deleteUser,findUser,createUser}
+const verifyUser = (id) => {
+  return Pool.query(
+    `UPDATE users SET verif=1 WHERE id='${id}'`
+  );
+}
+
+module.exports = {selectData,insertData,selectUserById,updateData,deleteUser,findUser,createUser,verifyUser}
