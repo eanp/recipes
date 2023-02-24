@@ -63,11 +63,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkZDNhYzBhL
 
 ###
 POST  {{url}}/recipes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkZDNhYzBhLWNjY2EtNDg2ZS05YWE5LTRiZDUxZjIyMGFhYiIsImVtYWlsIjoiZWFuQGVhbi5zZyIsImZ1bGxuYW1lIjoiZWFuIiwicGhvdG8iOm51bGwsInZlcmlmIjowLCJvdHAiOm51bGwsImNyZWF0ZWRfYXQiOm51bGwsImlhdCI6MTY3NzA1MDQ5MCwiZXhwIjoxNjc4MzY0NDkwfQ.rx8cJMr5j4SffAxdfoWKFXiD5s1qyQHXA_fGQAgrftE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMWJjZGY3LTI2OTYtNDZkZS1iYWI1LTI0ODBjNDFmN2U4OCIsImVtYWlsIjoiZnZ0MTg0MDFAbmV6aWQuY29tIiwiZnVsbG5hbWUiOiJuZXppZCIsInBob3RvIjpudWxsLCJ2ZXJpZiI6MSwib3RwIjoiNDQ0OTE5IiwiY3JlYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjc3MjI2NDYwLCJleHAiOjE2Nzg1NDA0NjB9.bld1-dLppchtmv5Hgbp8hVh-yEuEcNJ8sAGw-Qtf-w0
 content-type: application/json
 
 {
-    "title":"telur acak",
+    "title":"telur rebus",
     "ingredients": "telur",
     "photo": "http://localhost"
 }

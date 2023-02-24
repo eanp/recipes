@@ -4,7 +4,7 @@ POST  {{url}}/auth/register
 content-type: application/json
 
 {
-    "email":"fvt18401@nezid.com",
+    "email":"tll03542@nezid.com",
     "name":"nezid",
     "password":"123"
 }

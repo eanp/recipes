@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(morgan('combined'))
 app.use("/",mainRouter)
+app.use('/img',express.static('./tmp'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
