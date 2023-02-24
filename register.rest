@@ -1,11 +1,11 @@
-@url=http://localhost:3000
+@url=https://zealous-erin-cod.cyclic.app/
 ###
 POST  {{url}}/auth/register
 content-type: application/json
 
 {
-    "email":"tll03542@nezid.com",
-    "name":"nezid",
+    "email":"avg04759@zslsz.com",
+    "name":"avg",
     "password":"123"
 }
 
@@ -18,7 +18,7 @@ POST  {{url}}/auth/login
 content-type: application/json
 
 {
-    "email":"ean@ean.my",
+    "email":"avg04759@zslsz.com",
     "password":"123"
 }
 

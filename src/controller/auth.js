@@ -36,7 +36,8 @@ const UsersController = {
         }
 
         try{
-            let url = `http://${process.env.BASE_URL}:${process.env.PORT}/auth/otp/${id}/${otp}`
+            let url = `https://zealous-erin-cod.cyclic.app//auth/otp/${id}/${otp}`
+            // let url = `http://${process.env.BASE_URL}:${process.env.PORT}/auth/otp/${id}/${otp}`
             let sendEmail =  email(req.body.email,otp,url,req.body.name)
             if(sendEmail == 'email not send'){
                 return res.status(404).json({status:404,message:`register gagal, email tidak terkirim`})                
