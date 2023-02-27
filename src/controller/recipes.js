@@ -3,12 +3,18 @@ const cloudinary = require("../config/photo")
 
 const RecipesController = {
     inputRecipes: async (req,res,next)=>{
+        console.log('req valid',req.isFileValid)
+
+        if(!req.isFileValid){
+            return res.status(404).json({status:404,message:`${req.isFileValidMessage || `tipe file salah`}`})
+        }
+
         const imageUrl = await cloudinary.uploader.upload(req.file.path,{folder:'food'})
 
         console.log('imageUrl', imageUrl)
 
         if(!imageUrl){
-            res.status(404).json({status:404,message:`input data failed, failed to upload photo`})
+            return res.status(404).json({status:404,message:`input data failed, failed to upload photo`})
         }
 
         let data = {}
