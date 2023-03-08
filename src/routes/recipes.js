@@ -5,7 +5,7 @@ const {getCategories} = require('../controller/category')
 const {protect} = require('../middleware/auth')
 const upload = require('../middleware/uploadPhoto')
 
-router.post('/',upload.single('photo'),inputRecipes)
+router.post('/',protect,upload.single('photo'),inputRecipes)
 router.get('/',getRecipes)
 router.get('/category',getCategories)
 router.get('/my-recipe',protect,getRecipesById)
