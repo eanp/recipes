@@ -3,9 +3,17 @@ require('dotenv').config()
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const mainRouter = require('./src/routes')
+const cors = require("cors");
 
 const app = express()
 const port = 3000
+
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 console.log(process.env.DB_NAME)
 
