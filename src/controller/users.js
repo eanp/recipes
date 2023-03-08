@@ -1,16 +1,5 @@
 const {selectData,insertData,selectDataById,updateData,deleteUser} = require('./../models/users')
 
-let data = {
-    users: [{
-        id: 1,
-        name: "fauzan"
-    },
-    {
-        id:2,
-        name: "bayu"
-    }]
-}
-
 const UsersController = {
     getDetail: async (req,res,next)=>{
         let id = req.params.id
