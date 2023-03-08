@@ -1,4 +1,4 @@
-const {insertData,getData,getDataById} = require('./../models/recipes')
+const {insertData,getData,getDataById,deleteData,updateData,getDataByUserId} = require('./../models/recipes')
 const cloudinary = require("../config/photo")
 
 const RecipesController = {
@@ -58,13 +58,50 @@ const RecipesController = {
             id: req.payload.id
         }
 
-        let result = await getDataById(data)
+        let result = await getDataByUserId(data)
 
         if(!result){
             res.status(404).json({status:404,message:`get data failed`})
         }
 
         res.status(200).json({status:200,message:`get data success `,data:result.rows})
+    },
+    deleteRecipes:async(req,res,next) => {
+        let id = req.params.id
+        let result = await deleteData(id)
+        if(!result){
+            res.status(404).json({status:404,message:`delete data failed`})
+        }
+
+        res.status(200).json({status:200,message:`delete data success `})
+    },
+    updateRecipes:async(req,res,next)=>{
+        let id = req.params.id
+        let {rows:[recipes]} = await getDataById(id)
+        
+        if(!recipes){
+            return res.status(404).json({status:404,message:`data not found`})
+        }
+        
+        let data = {}
+        data.id = parseInt(id)
+        data.title = req.body.title || recipes.title
+        data.ingredients = req.body.ingredients || recipes.ingredients
+        data.category_id = req.body.category_id || recipes.category_id
+        
+        let photoFile = req.file
+        if(photoFile){
+            const imageUrl = await cloudinary.uploader.upload(req.file.path,{folder:'food'})
+            data.photo = imageUrl.secure_url
+            console.log('imageUrl', imageUrl)
+            if(!imageUrl){
+                return res.status(404).json({status:404,message:`input data failed, failed to upload photo`})
+            }    
+        }
+        data.photo = recipes.photo
+
+        let {rows:[users]} = await updateData(data)
+        res.status(200).json({status:200,message:`update data success `,data:users})
     }
 }
 

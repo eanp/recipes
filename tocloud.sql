@@ -24,3 +24,5 @@ CREATE TABLE recipes(
 );
 ALTER TABLE recipes add category_id INT;
 ALTER TABLE recipes add Foreign Key (category_id) REFERENCES category(id);
+ALTER TABLE recipes add deleted_at TIMESTAMP;
+ALTER TABLE recipes add updated_at TIMESTAMP;

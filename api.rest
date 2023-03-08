@@ -1,6 +1,10 @@
 @url=http://localhost:3000
 ###
 GET {{url}}/recipes/category
+###
+DELETE  {{url}}/recipes/1
+###
+PUT  {{url}}/recipes/1
 
 ###
 POST  {{url}}/users
