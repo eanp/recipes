@@ -14,15 +14,15 @@ const UsersController = {
         console.log(foundUser)
     
         if(foundUser){
-            res.status(200).json({status:200,message:`data user :  ${foundUser.name}`})
+            return res.status(200).json({status:200,message:`data user :  ${foundUser.name}`})
         } else {
-            res.status(400).json({status:400,message:`data user not found`})
+            return res.status(400).json({status:400,message:`data user not found`})
         }
     },
     getData: async (req,res,next)=>{
         let showUser = await selectData()
         if(!showUser){
-            res.status(400).json({status:400,message:`data user not found`})
+            return res.status(400).json({status:400,message:`data user not found`})
         }
         
         res.status(200).json({status:200,message:`data found`,data:showUser.rows})
@@ -38,7 +38,7 @@ const UsersController = {
         let checkData = await selectDataById('name',body.name)
 
         if(!checkData){
-            res.status(404).json({status:404,message:`data input not found`})
+            return res.status(404).json({status:404,message:`data input not found`})
         }
 
         res.status(200).json({status:200,message:`data found`,data:checkData.rows})
@@ -50,7 +50,7 @@ const UsersController = {
         let result = await updateData(id,name)
 
         if(!result){
-            res.status(404).json({status:404,message:`data input not found`})
+            return res.status(404).json({status:404,message:`data input not found`})
         }
 
         let checkData = await selectDataById('id',id)
@@ -64,7 +64,7 @@ const UsersController = {
         console.log(result)
         
         if(!result){
-            res.status(404).json({status:404,message:`delete data failed`})
+            return res.status(404).json({status:404,message:`delete data failed`})
         }
 
         res.status(200).json({status:200,message:`delete data success`,data:`${id} deleted`})

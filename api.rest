@@ -2,7 +2,7 @@
 ###
 GET {{url}}/recipes/category
 ###
-DELETE  {{url}}/recipes/1
+GET  {{url}}/recipes/1
 ###
 PUT  {{url}}/recipes/1
 
